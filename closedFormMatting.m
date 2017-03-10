@@ -8,7 +8,7 @@
 % - loc_*** define the parameters for the matting Laplacian.
 
 function alpha = closedFormMatting(image, trimap, params, suppressMessages)
-    setup
+    abmtSetup
     tic;
     if ~exist('params', 'var') || isempty(params)
         params = getMattingParams('CF');

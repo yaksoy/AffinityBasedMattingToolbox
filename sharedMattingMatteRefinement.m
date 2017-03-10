@@ -13,7 +13,7 @@
 %   alpha estimation
 
 function alpha = sharedMattingMatteRefinement(image, trimap, alphaHat, confidences, params, suppressMessages)
-    setup
+    abmtSetup
     tic;
     if ~exist('confidences', 'var') || isempty(confidences)
         confidences = ones(size(alphaHat(:,:,1)));

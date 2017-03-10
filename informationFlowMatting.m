@@ -18,7 +18,7 @@
 %   false, but in the original paper it is reported to be 'true'.
 
 function alpha = informationFlowMatting(image, trimap, params, suppressMessages)
-    setup
+    abmtSetup
     tic;
     if ~exist('params', 'var') || isempty(params)
         params = getMattingParams('IFM');

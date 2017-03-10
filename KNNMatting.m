@@ -10,7 +10,7 @@
 % - knn_hsv defines the color space (RGB or HSV) for KNN search
 
 function alpha = KNNMatting(image, trimap, params, suppressMessages)
-    setup
+    abmtSetup
     tic;
     if ~exist('params', 'var') || isempty(params)
         params = getMattingParams('KNN');
