@@ -12,10 +12,9 @@ function w = localLinearEmbedding(pt, neighbors, conditionerMult)
     % each column of neighbors represent a neighbor, each row a dimension
     % pt is a row vector
     corr = neighbors' * neighbors + conditionerMult * eye(size(neighbors, 2));
-    corrInv = inv(corr);
     ptDotN = neighbors' * pt;
-    alpha = 1 - sum(corrInv * ptDotN);
-    beta = sum(corrInv(:));
+    alpha = 1 - sum(corr \ ptDotN);
+    beta = sum(corr \ ones(size(corr, 1), 1)); % sum of elements of inv(corr)
     lagrangeMult = alpha / beta;
-    w = corrInv * (ptDotN + lagrangeMult);
+    w = corr \ (ptDotN + lagrangeMult);
 end
